@@ -57,7 +57,7 @@ def quantum_fourier_transform(number_of_qubits: int = 3) -> qiskit.result.counts
     """
     if type(number_of_qubits) == str:
         raise TypeError("number of qubits must be a integer.")
-    if not number_of_qubits > 0:
+    if number_of_qubits <= 0:
         raise ValueError("number of qubits must be > 0.")
     if math.floor(number_of_qubits) != number_of_qubits:
         raise ValueError("number of qubits must be exact integer.")

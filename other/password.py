@@ -30,8 +30,7 @@ def alternative_password_generator(chars_incl: str, i: int) -> str:
     # random_character FUNCTIONS
     # Put your code here...
     i -= len(chars_incl)
-    quotient = i // 3
-    remainder = i % 3
+    quotient, remainder = divmod(i, 3)
     # chars = chars_incl + random_letters(ascii_letters, i / 3 + remainder) +
     #     random_number(digits, i / 3) + random_characters(punctuation, i / 3)
     chars = (
@@ -89,13 +88,7 @@ def is_strong_password(password: str, min_length: int = 8) -> bool:
     num = any(char in digits for char in password)
     spec_char = any(char in punctuation for char in password)
 
-    if upper and lower and num and spec_char:
-        return True
-
-    else:
-        # Passwords should contain UPPERCASE, lowerase
-        # numbers, and special characters
-        return False
+    return upper and lower and num and spec_char
 
 
 def main():
